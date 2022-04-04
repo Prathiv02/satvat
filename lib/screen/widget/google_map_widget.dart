@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:satvat/utils/progress_utils.dart';
@@ -21,6 +22,7 @@ class _GoogleMapWidgetState extends State<GoogleMapWidget> {
     if (defaultTargetPlatform == TargetPlatform.android) {
       AndroidGoogleMapsFlutter.useAndroidViewSurface = true;
     }
+    Fluttertoast.showToast(msg: "Getting User Location");
     Provider.of<NavigationProvider>(context, listen: false).getCurrentLocation(context: context);
 
     super.initState();
